@@ -1,8 +1,8 @@
 env:
-    credentials: "ENCRYPTED[!19334c485f77bf5ef0d48e58bd50701cba79a08ebbf518ef7e7cd4436317020616d5492853a03ad370d947ca50e32019!]"
-    rcloneconfig: "ENCRYPTED[!6950207180a7126c8209edff681e77b1722355e133491f24e408aeecb77c032e3a0bdec3d2a08859e65a863431211825!]"
-    tokentl: "ENCRYPTED[!aa090cd88b75f559eddb2b8689aa1fba21dd8ee8b5f6e5388de3ba9cd4e8fd5a67e2e9015a819f36b8db5672365545d3!]"
-    idtl: "ENCRYPTED[!b6b3b60e83872912ded9c29c2c68df7deb43db4ce875d86acfc71586b0bd53393092525dcbf74972de4995fadb87e5f2!]"
+    credentials: "ENCRYPTED[!ad9cea0817cc65d379a00cf100bda1e3b52549daaa0e8a01145475df4e8c7458d6ca5a474f3f4675d119a2e916eaa03f!]"
+    rcloneconfig: "ENCRYPTED[!1c035c963defcbd54bec6e1b76c6e717d08ace72217fa4439318abf03cec5d2d161b7499f0f5dd45f565618ec5dbf1ff!]"
+    tokentl: "ENCRYPTED[!5487857f6bde4d673a04119d51f02abef221c90acf20e97c7b626cc3b411b7976f1c5075c74ee091aade97e41fe7d16e!]"
+    idtl: "ENCRYPTED[!d387faacf1a99eb9e5ea8b63c3d1c949a24a852d61b38ba5dba62db7e7b13248e7f56fdd44e6ec3d60865789afc75439!]"
     lunch: lunch blaze_citrus-userdebug
     make: make bacon
 
@@ -57,12 +57,12 @@ task:
 
   Upload_script:
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Uploading Build $(cd ~/rom/out/target/product/citrus/ && ls ProjectBlaze-*.zip)"
-      - rclone copy ~/rom/out/target/product/citrus/ProjectBlaze-*.zip fk09:citrus -P
+ #     - rclone copy ~/rom/out/target/product/citrus/ProjectBlaze-*.zip fk09:citrus -P
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Build $(cd ~/rom/out/target/product/citrus/ && ls ProjectBlaze-*.zip) Uploaded Successfully!"
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Compres ccache"
-      - ./ziping.sh
+ #     - ./ziping.sh
       - cd ~/
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Uploading ccache...."
-      - rclone copy ccache.tar.gz fk09:blaze -P
+   #   - rclone copy ccache.tar.gz fk09:blaze -P
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Ccache Uploaded Successfully!"
 
