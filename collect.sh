@@ -11,7 +11,7 @@ ccache -o compression=true
 ccache -z
 $lunch
 $make -j8 &
-sleep 94m
+sleep 93m
 kill %1
 ccache -s
 
