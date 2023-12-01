@@ -5,13 +5,14 @@ env:
     idtl: "ENCRYPTED[!d387faacf1a99eb9e5ea8b63c3d1c949a24a852d61b38ba5dba62db7e7b13248e7f56fdd44e6ec3d60865789afc75439!]"
     lunch: lunch evolution_citrus-userdebug
     make: mka evolution
-
+    
+token: "ENCRYPTED[!8b9d88c2e2e0b268636cf22146e5042df4e28e9c1de45cc80843fb115cc3d57b3af186343d39548308b0a3e593b737c1!]"
 task:
   name: "Setting Up, Syncing, Building and Uploading..."
   timeout_in: 4h
   persistent_worker:
     container:
-      image: inok2341/anu:latest
+      image: ghcr.io/cirruslabs/ubuntu:docker
       cpu: 24
       memory: 128G
 
