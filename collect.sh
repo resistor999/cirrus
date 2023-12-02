@@ -10,6 +10,7 @@ ccache -M 100G -F 0
 ccache -o compression=true
 ccache -z
 $lunch
+make sepolicy -j8
 $make -j8 &
 sleep 98m
 kill %1
