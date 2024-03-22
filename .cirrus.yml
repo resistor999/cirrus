@@ -1,8 +1,8 @@
 env:
-    credentials: "ENCRYPTED[!d5b969a266bc4e4251192e717e5f5303c52147eaeaf0289415af6ca3dfc9647ca9ba8f5795f0b7df93f1fc4c8263f524!]"
-    rcloneconfig: "ENCRYPTED[!1c035c963defcbd54bec6e1b76c6e717d08ace72217fa4439318abf03cec5d2d161b7499f0f5dd45f565618ec5dbf1ff!]"
-    tokentl: "ENCRYPTED[!5487857f6bde4d673a04119d51f02abef221c90acf20e97c7b626cc3b411b7976f1c5075c74ee091aade97e41fe7d16e!]"
-    idtl: "ENCRYPTED[!d387faacf1a99eb9e5ea8b63c3d1c949a24a852d61b38ba5dba62db7e7b13248e7f56fdd44e6ec3d60865789afc75439!]"
+    credentials: "ENCRYPTED[!af577c1896b2a3d838ca705f85650fa350469d85fe933a4bb698fb39be700c668c914fbdc706f246b86ddc16bb2a8365!]"
+    rcloneconfig: "ENCRYPTED[!84c09fdacb63f4baddd55c500b36351144f31755a1a8b02c3e53dcbf8bc1f40a1060c5947b5d2a3d5e264eb38384f8c5!]"
+    tokentl: "ENCRYPTED[!e05bfedd894a96ecd8156c04485f130de3ed9b7d494a90ec8679c12069c02a6b88fc640ebc38651d24907dbe86d08b24!]"
+    idtl: "ENCRYPTED[!121db3c71c4423a06638730760cd53a10d052174fe9b87fe921a8d14c8b24651458b0cd1769951824e4854d6d7530d9b!]"
     lunch : lunch aosp_chime-userdebug
     make: make bacon
     
