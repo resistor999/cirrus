@@ -3,7 +3,7 @@ env:
     rcloneconfig: "ENCRYPTED[!84c09fdacb63f4baddd55c500b36351144f31755a1a8b02c3e53dcbf8bc1f40a1060c5947b5d2a3d5e264eb38384f8c5!]"
     tokentl: "ENCRYPTED[!e05bfedd894a96ecd8156c04485f130de3ed9b7d494a90ec8679c12069c02a6b88fc640ebc38651d24907dbe86d08b24!]"
     idtl: "ENCRYPTED[!121db3c71c4423a06638730760cd53a10d052174fe9b87fe921a8d14c8b24651458b0cd1769951824e4854d6d7530d9b!]"
-    lunch : lunch aosp_chime-userdebug
+    lunch : lunch dot_citrus-userdebug
     make: make bacon
     
 task:
@@ -23,7 +23,7 @@ task:
        - echo "$credentials" > ~/.git-credentials
        - git config --global credential.helper store --file=~/.git-credentials
        - mkdir -p ~/ccache
-       - rclone copy fk09:aosp/ccache.tar.gz ~/ -P
+       - rclone copy fk09:dot/ccache.tar.gz ~/ -P
        - cd ~/
        - time tar xf ccache.tar.gz
        - cd ~/
@@ -38,7 +38,8 @@ task:
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Start sync Source"
       - mkdir -p ~/rom
       - cd ~/rom
-      - repo init -q --no-repo-verify --depth=1 -u https://github.com/Night-Raids-Reborn/manifest-rom -b tenx11 -g default,-mips,-darwin,-notdefault
+      - repo init -q --no-repo-verify --depth=1 -u https://github.com/Night-Raids-Reborn/manifest-rom -b dot11 -g default,-mips,-darwin,-notdefault
+      - git clone https://github.com/Night-Raids-Reborn/local_manifest -b 11-citrus-pow --depth 1 .repo/local_manifests
       - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Sync Completed!"
 
@@ -57,8 +58,8 @@ task:
   Upload_script:
       - ./upload.sh
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Compres ccache"
- #     - ./ziping.sh
+      - ./ziping.sh
       - cd ~/
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Uploading ccache...."
-#      - rclone copy ccache.tar.gz fk09:aosp -P
+      - rclone copy ccache.tar.gz fk09:dot -P
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Ccache Uploaded Successfully!"
