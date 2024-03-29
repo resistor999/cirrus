@@ -23,8 +23,8 @@ task:
        - echo "$credentials" > ~/.git-credentials
        - git config --global credential.helper store --file=~/.git-credentials
        - mkdir -p ~/ccache
-       - rclone copy fk09:dot/ccache.tar.gz ~/ -P
        - cd ~/
+       - wget -O ccache.tar.gz https://pikabot.me/0:/dot-ccache.tar.gz
        - time tar xf ccache.tar.gz
        - cd ~/
 
