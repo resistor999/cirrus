@@ -3,7 +3,7 @@ env:
     rcloneconfig: "ENCRYPTED[!84c09fdacb63f4baddd55c500b36351144f31755a1a8b02c3e53dcbf8bc1f40a1060c5947b5d2a3d5e264eb38384f8c5!]"
     tokentl: "ENCRYPTED[!e05bfedd894a96ecd8156c04485f130de3ed9b7d494a90ec8679c12069c02a6b88fc640ebc38651d24907dbe86d08b24!]"
     idtl: "ENCRYPTED[!121db3c71c4423a06638730760cd53a10d052174fe9b87fe921a8d14c8b24651458b0cd1769951824e4854d6d7530d9b!]"
-    lunch : lunch cafex_juice-userdebug
+    lunch : lunch cafex_juice-user
     make:  m cafex
     
 task:
