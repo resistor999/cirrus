@@ -3,8 +3,8 @@ env:
     rcloneconfig: "ENCRYPTED[!84c09fdacb63f4baddd55c500b36351144f31755a1a8b02c3e53dcbf8bc1f40a1060c5947b5d2a3d5e264eb38384f8c5!]"
     tokentl: "ENCRYPTED[!e05bfedd894a96ecd8156c04485f130de3ed9b7d494a90ec8679c12069c02a6b88fc640ebc38651d24907dbe86d08b24!]"
     idtl: "ENCRYPTED[!121db3c71c4423a06638730760cd53a10d052174fe9b87fe921a8d14c8b24651458b0cd1769951824e4854d6d7530d9b!]"
-    lunch : lunch cafex_juice-user
-    make:  m cafex
+    lunch : lunch xdroid_chime-userdebug
+    make: make xd
     
 task:
   name: "Setting Up, Syncing, Building and Uploading..."
@@ -23,7 +23,7 @@ task:
        - echo "$credentials" > ~/.git-credentials
        - git config --global credential.helper store --file=~/.git-credentials
        - mkdir -p ~/ccache
-       - rclone copy fk09:cafex/ccache.tar.gz ~/ -P
+       - rclone copy fk09:xdroid/ccache.tar.gz ~/ -P
        - cd ~/
        - time tar xf ccache.tar.gz
        - cd ~/
@@ -38,8 +38,8 @@ task:
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Start sync Source"
       - mkdir -p ~/rom
       - cd ~/rom
-      - repo init -q --no-repo-verify --depth=1 -u https://github.com/Night-Raids-Reborn/manifest-rom -b cafex11 -g default,-mips,-darwin,-notdefault
-      - git clone https://github.com/Night-Raids-Reborn/local_manifest -b 11clo --depth 1 .repo/local_manifests
+      - repo init -q --no-repo-verify --depth=1 -u https://github.com/xdCLO/xd_manifest -b eleven -g default,-mips,-darwin,-notdefault
+      - git clone https://github.com/Night-Raids-Reborn/local_manifest -b 11-oss-clo --depth 1 .repo/local_manifests
       - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Sync Completed!"
 
@@ -61,5 +61,5 @@ task:
       - ./ziping.sh
       - cd ~/
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Uploading ccache...."
-      - rclone copy ccache.tar.gz fk09:cafex -P
+      - rclone copy ccache.tar.gz fk09:xdroid -P
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Ccache Uploaded Successfully!"
