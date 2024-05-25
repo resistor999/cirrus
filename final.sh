@@ -10,6 +10,5 @@ ccache -M 100G -F 0
 ccache -o compression=true
 ccache -z
 
-lunch lineage_mido-ap1a-userdebug
-make sepolicy
+$brunch
 
