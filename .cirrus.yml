@@ -38,9 +38,11 @@ task:
       - mkdir -p ~/rom
       - cd ~/
       - sudo apt-get update && sudo apt-get install -y git-lfs && git lfs install
-      - repo init -q --no-repo-verify --depth=1 -u https://github.com/ProjectMatrixx/android.git -b 14.0 --git-lfs -g default,-mips,-darwin,-notdefault
+      - sudo curl --create-dirs -L -o /usr/local/bin/repoo -O -L https://storage.googleapis.com/git-repo-downloads/repo
+      - sudo chmod a+rx /usr/local/bin/repoo
+      - repoo init -q --no-repo-verify --depth=1 -u https://github.com/ProjectMatrixx/android.git -b 14.0 --git-lfs -g default,-mips,-darwin,-notdefault
       - git clone https://github.com/Night-Raids-Reborn/local_manifest -b mido-14 --depth 1 .repo/local_manifests
-      - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
+      - repoo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Sync Completed!"
 
   Build_script:
