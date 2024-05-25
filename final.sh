@@ -10,6 +10,6 @@ ccache -M 100G -F 0
 ccache -o compression=true
 ccache -z
 
-lunch voltage_mido-userdebug
+lunch lineage_mido-userdebug
 make sepolicy
 
