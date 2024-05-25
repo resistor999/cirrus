@@ -10,7 +10,7 @@ ccache -M 100G -F 0
 ccache -o compression=true
 ccache -z
 $brunch &
-sleep 88m
+sleep 86m
 kill %1
 ccache -s
 
